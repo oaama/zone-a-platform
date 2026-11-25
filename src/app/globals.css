@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-za-primary: #45338b;
+  --color-za-secondary: #2e4da0;
+  --color-za-accent: #1a5bb5;
+  --color-za-navy: #111827;
+  --color-za-bg: #f5f6fa;
+  --font-heading-ar: var(--font-alexandria), "Cairo", sans-serif;
+  --font-body-ar: var(--font-cairo), sans-serif;
+  --font-en: var(--font-inter), sans-serif;
+}
+
+body {
+  background: var(--color-za-bg);
+  color: var(--color-za-navy);
+}
+
+.font-heading {
+  font-family: var(--font-heading-ar);
+}
+html[dir="ltr"] .font-heading {
+  font-family: var(--font-en);
+}
+
+/* ---- polish round ---- */
+::selection {
+  background: #45338b;
+  color: #fff;
+}
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #eef1fb;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#45338b, #1a5bb5);
+  border-radius: 8px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.15); }
+}
+.animate-fade-up { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.36s; }
+.delay-4 { animation-delay: 0.5s; }
+.animate-drift { animation: drift 14s ease-in-out infinite; }
+.animate-drift-slow { animation: drift 22s ease-in-out infinite reverse; }
+
+.text-gradient {
+  background: linear-gradient(90deg, #a99ae0, #5b8def);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 38%, black 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 38%, black 25%, transparent 78%);
+}
+.progress-gradient {
+  background: linear-gradient(90deg, #45338b, #2e4da0, #1a5bb5);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 46s linear infinite;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+.animate-float { animation: floatY 4.5s ease-in-out infinite; }
+.animate-float-slow { animation: floatY 6s ease-in-out 1.2s infinite; }
